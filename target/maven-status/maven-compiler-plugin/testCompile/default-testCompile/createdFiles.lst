@@ -1,0 +1,5 @@
+SearchProductsStepDefinitions.class
+LoginAndLogoutStepDefinitions.class
+RegistrationStepDefinitions.class
+ChangePasswordStepDefinitions.class
+TestRunner.class
