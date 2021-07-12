@@ -1,5 +1,6 @@
 import driver.BrowserInit;
 import io.cucumber.java.After;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,7 +19,7 @@ public class WishListProductsStepDefinitions {
     LoginAndLogoutStepDefinitions loginAndLogoutStepDefinitions = new LoginAndLogoutStepDefinitions();
 
     @Given("User is logged in")
-    public void user_is_logged_in() {
+    public void userIsLoggedIn() {
 
         BrowserInit browserInit = new BrowserInit();
         driver = browserInit.startChrome();
@@ -27,7 +28,7 @@ public class WishListProductsStepDefinitions {
     }
 
     @Given("User is at product details page")
-    public void user_is_at_product_details_page() {
+    public void userIsAtProductDetailsPage() {
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         myAccountPage.clickOnHomeButton();
 
@@ -36,41 +37,41 @@ public class WishListProductsStepDefinitions {
     }
 
     @When("User clicks on heart icon")
-    public void user_clicks_on_icon() {
+    public void userClicksOnHeartIcon() {
         ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
         itemName = driver.getTitle();
         productDetailsPage.clickOnWishListButton();
     }
 
     @Then("The item is added to the wish list")
-    public void the_item_is_added_to_the_wish_list() {
+    public void itemIsAddedToTheWishList() {
         String expectedMessage = "Success: You have added " +itemName+ " to your wish list!";
         ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
         boolean isItemAdded = productDetailsPage.getAlertMessage().contains(expectedMessage);
         Assert.assertTrue(isItemAdded);
-        teardown();
+        driver.close();
     }
 
     @When("User clicks on Wish List button in the header")
-    public void user_clicks_on_wish_list_button_in_the_header() {
+    public void userClicksOnWishListButtonInHeader() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnWishListButtonHeader();
     }
 
-    @When("Clicks on the X button at the item")
-    public void clicks_on_the_x_button_at_the_item() {
+    @And("Clicks on the X button at the item")
+    public void clicksOnXButtonAtItem() {
         WishListPage wishListPage = new WishListPage(driver);
         wishListPage.deleteFirstItem();
     }
 
     @Then("The product is removed from the wish list")
-    public void the_product_is_removed_from_the_wish_list() {
+    public void productIsRemovedFromWishList() {
         boolean pageSource = driver.getPageSource().contains(itemName);
         Assert.assertFalse(pageSource);
     }
 
     @After
-    public void teardown(){
+    public void tearDown(){
         if(driver != null){
             driver.quit();
         }

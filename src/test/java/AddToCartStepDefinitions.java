@@ -14,7 +14,7 @@ public class AddToCartStepDefinitions {
     private String productDetailsName;
 
     @Given("User is at the product details")
-    public void user_is_at_the_product_details() {
+    public void userIsAtProductDetails() {
         BrowserInit browserInit = new BrowserInit();
         driver = browserInit.startChrome();
 
@@ -24,12 +24,12 @@ public class AddToCartStepDefinitions {
         productDetailsName = driver.getTitle();
     }
     @When("User click on Add to Cart button")
-    public void user_click_on_add_to_cart_button() {
+    public void userClickOnAddToCartButton() {
         ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
         productDetailsPage.addToCart();
     }
     @Then("Item is successfully added to the cart")
-    public void item_is_successfully_added_to_the_cart() {
+    public void itemIsSuccessfullyAddedToCart() {
         String expectedMessage = "You have added " +productDetailsName+ " to your shopping cart!";
         ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
         boolean isItemAdded = productDetailsPage.getAlertMessage().contains(expectedMessage);
@@ -37,7 +37,7 @@ public class AddToCartStepDefinitions {
     }
 
     @After
-    public void teardown(){
+    public void tearDown(){
         if(driver != null){
             driver.quit();
         }

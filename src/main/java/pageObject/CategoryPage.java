@@ -14,7 +14,15 @@ public class CategoryPage extends CustomSeleniumMethods {
     @FindBy (xpath = "//body/div[@id='product-category']/div[@class='row']/div[@id='content']/div[4]/div[1]/div[1]")
     private WebElement firstItemOfCategory;
 
+    @FindBy (xpath = "//div[@id='content']//div[1]//div[1]//div[2]//div[2]//button[1]")
+    private WebElement itemDetailsButton;
+
     public void openFirstItemOfCategory(){
         click(firstItemOfCategory);
+    }
+
+    public void openItemDetails(){
+        scroll(itemDetailsButton);
+        click(itemDetailsButton);
     }
 }

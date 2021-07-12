@@ -15,13 +15,13 @@ public class ViewProductStepDefinitions {
     private boolean featureItemDetailsName, searchItemDetailsName;
 
     @Given("User is at the home page")
-    public void user_is_at_the_home_page() {
+    public void userIsAtHomePage() {
         BrowserInit browserInit = new BrowserInit();
         driver = browserInit.startChrome();
     }
 
     @When("User clicks on the featured item")
-    public void user_clicks_on_the_featured_item() {
+    public void userClickOnFeaturedItem() {
         HomePage homePage = new HomePage(driver);
         featureItemName = homePage.getNameOfFourthItem();
         homePage.clickOnFourthItem();
@@ -30,19 +30,19 @@ public class ViewProductStepDefinitions {
     }
 
     @Then("the details of the product is opened")
-    public void the_details_of_the_product_is_opened() {
+    public void detailsAreOpen() {
         Assert.assertTrue(featureItemDetailsName);
     }
 
     @Given("user searches for product via search bar")
-    public void user_searches_for_product_via_search_bar() {
+    public void userSearchesForProductViaSearchBar() {
         HomePage homePage = new HomePage(driver);
         homePage.enterSearchText("iMac");
         homePage.clickOnSearchButton();
     }
 
     @When("user successfully finds the product and clicks on it")
-    public void user_successfully_finds_the_product_and_clicks_on_it() {
+    public void userFindsProductAndClicksOnIt() {
         HomePage homePage = new HomePage(driver);
         searchItemName = homePage.getNameOfFirstItemOfSearch();
         homePage.clickOnFirstItemOfSearch();
@@ -56,10 +56,9 @@ public class ViewProductStepDefinitions {
     }
 
     @After
-    public void teardown(){
+    public void tearDown(){
         if(driver != null){
             driver.quit();
         }
     }
-
 }

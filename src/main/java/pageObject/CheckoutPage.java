@@ -66,7 +66,6 @@ public class CheckoutPage extends CustomSeleniumMethods {
         sendText(paymentAddressField, address);
         sendText(paymentCityField, city);
         sendText(paymentPostcodeField, postCode);
-
     }
 
     public void clickAddressContinue(){
@@ -91,7 +90,7 @@ public class CheckoutPage extends CustomSeleniumMethods {
         click(termsAgreeBox);
     }
 
-    public void clickConfirmOrder(){
+    public void clickConfirmOrder() {
         click(confirmButton);
     }
 
@@ -99,5 +98,4 @@ public class CheckoutPage extends CustomSeleniumMethods {
         waitForVisibility(successContinueButton);
         return getText(successContent);
     }
-
 }

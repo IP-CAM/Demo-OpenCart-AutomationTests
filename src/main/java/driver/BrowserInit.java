@@ -16,18 +16,16 @@ public class BrowserInit {
     private WebDriver driver;
 
     public WebDriver startChrome(){
-        /**
-         * Checking for the version of your browser & downloading corresponding web driver
-         * Documentation can be be found here: https://github.com/bonigarcia/webdrivermanager
-         */
+
+        //Downloading driver
         WebDriverManager.chromedriver().setup();
 
         //Managing desired capabilities of our browser
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--start-maximized");
 
         //If set to true, tests will be run in the Headless mode
         //chromeOptions.setHeadless(true);
+        chromeOptions.addArguments("--start-maximized");
 
         driver = new ChromeDriver(chromeOptions);
         driver.get(URL);
@@ -37,10 +35,8 @@ public class BrowserInit {
     }
 
     public WebDriver startFirefox(){
-        /**
-         * Checking for the version of your browser & downloading corresponding web driver
-         * Documentation can be be found here: https://github.com/bonigarcia/webdrivermanager
-         */
+
+        //Downloading driver
         WebDriverManager.firefoxdriver().setup();
 
         //Managing desired capabilities of our browser

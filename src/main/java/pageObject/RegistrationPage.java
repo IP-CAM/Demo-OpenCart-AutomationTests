@@ -46,29 +46,7 @@ public class RegistrationPage extends CustomSeleniumMethods {
         sendText(passwordField, password);
         sendText(passwordConfirmField, confirmPassword);
     }
-    /*public void enterFirstName(String text) {
-        sendText(firstNameField, text);
-    }
 
-    public void enterLastName(String text) {
-        sendText(lastNameField, text);
-    }
-
-    public void enterEmail(String text) {
-        sendText(emailField, text);
-    }
-
-    public void enterTelephone(String text) {
-        sendText(telephoneField, text);
-    }
-
-    public void enterPassword(String text) {
-        sendText(passwordField, text);
-    }
-
-    public void enterPasswordConfirm(String text) {
-        sendText(passwordConfirmField, text);
-    }*/
     public void acceptingNewsletter(){
         click(acceptingNewsletterButton);
     }

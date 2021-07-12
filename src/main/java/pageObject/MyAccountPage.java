@@ -29,6 +29,9 @@ public class MyAccountPage extends CustomSeleniumMethods {
     @FindBy (xpath = "//a[normalize-space()='Your Store']")
     private WebElement homeButton;
 
+    @FindBy (xpath = "//a[normalize-space()='View your order history']")
+    private WebElement viewOrderHistoryButton;
+
     public void clickOnLogout(){
         click(logoutButton);
     }
@@ -45,5 +48,9 @@ public class MyAccountPage extends CustomSeleniumMethods {
 
     public void clickOnHomeButton(){
         click(homeButton);
+    }
+
+    public void openViewOrderHistory() {
+        click(viewOrderHistoryButton);
     }
 }

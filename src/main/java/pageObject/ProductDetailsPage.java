@@ -11,7 +11,6 @@ public class ProductDetailsPage extends CustomSeleniumMethods {
         super(driver);
     }
 
-
     @FindBy (xpath = "//button[@data-original-title='Add to Wish List']")
     private WebElement wishListButton;
 
@@ -44,6 +43,7 @@ public class ProductDetailsPage extends CustomSeleniumMethods {
     }
 
     public void addToCart(){
+        scroll(addToCartButton);
         click(addToCartButton);
     }
 

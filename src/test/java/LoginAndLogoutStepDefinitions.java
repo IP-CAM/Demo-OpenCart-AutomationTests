@@ -1,5 +1,6 @@
 import driver.BrowserInit;
 import io.cucumber.java.After;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,7 +28,7 @@ public class LoginAndLogoutStepDefinitions {
     }
 
     @Given("User is at login page")
-    public void user_is_at_login_page() {
+    public void userIsAtLoginPage() {
         BrowserInit browserInit = new BrowserInit();
         driver = browserInit.startChrome();
         HomePage homePage = new HomePage(driver);
@@ -36,45 +37,44 @@ public class LoginAndLogoutStepDefinitions {
     }
 
     @When("User enters username and password")
-    public void user_enters_username_and_password() {
+    public void userEnterUsernameAndPassword() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.enterData(RegistrationStepDefinitions.email, RegistrationStepDefinitions.password);
     }
 
-    @When("Clicks on login button")
-    public void clicks_on_login_button() {
+    @And("Clicks on login button")
+    public void clickOnLoginButton() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.clickOnLogin();
-        CustomSeleniumMethods.takeScreenshot(driver, getClass().getSimpleName().toString());
     }
 
     @Then("User should be logged in")
-    public void user_should_be_logged_in() {
+    public void userShouldBeLoggedIn() {
         String pageTitle = driver.getTitle();
         Assert.assertEquals("My Account", pageTitle);
     }
 
     @Given("User is at My Account page")
-    public void user_is_at_my_account_page() {
-        user_should_be_logged_in();
+    public void userIsAtMyAccountPage() {
+        userShouldBeLoggedIn();
     }
 
     @When("User clicks on logout button")
-    public void user_clicks_on_logout_button() {
+    public void userClickOnLogoutButton() {
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         myAccountPage.clickOnLogout();
     }
 
     @Then("User should be logged out")
-    public void user_should_be_logged_out() {
+    public void userShouldBeLoggedOut() {
         String pageTitle = driver.getTitle();
         Assert.assertEquals("Account Logout", pageTitle);
         CustomSeleniumMethods.takeScreenshot(driver, getClass().getSimpleName().toString());
     }
 
     @After
-    public void teardown() {
-        if (driver != null) {
+    public void tearDown(){
+        if(driver != null){
             driver.quit();
         }
     }

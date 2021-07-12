@@ -1,9 +1,0 @@
-AddToCartStepDefinitions.class
-SearchProductsStepDefinitions.class
-LoginAndLogoutStepDefinitions.class
-ChangePasswordStepDefinitions.class
-ViewProductStepDefinitions.class
-WishListProductsStepDefinitions.class
-ProductPurchaseStepDefinitions.class
-RegistrationStepDefinitions.class
-TestRunner.class
