@@ -26,6 +26,9 @@ public class MyAccountPage extends CustomSeleniumMethods {
     @FindBy (xpath = "//input[@value='Continue']")
     private WebElement continueButton;
 
+    @FindBy (xpath = "//a[normalize-space()='Your Store']")
+    private WebElement homeButton;
+
     public void clickOnLogout(){
         click(logoutButton);
     }
@@ -38,5 +41,9 @@ public class MyAccountPage extends CustomSeleniumMethods {
         sendText(inputPasswordField, password);
         sendText(confirmPasswordField, password);
         click(continueButton);
+    }
+
+    public void clickOnHomeButton(){
+        click(homeButton);
     }
 }

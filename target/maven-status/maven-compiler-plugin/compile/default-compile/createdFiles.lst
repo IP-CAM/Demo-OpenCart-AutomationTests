@@ -1,8 +1,11 @@
 util\CustomSeleniumMethods.class
 util\GenerateRandomString.class
 pageObject\MyAccountPage.class
-pageObject\RegistrationSuccessPage.class
+pageObject\CategoryPage.class
+pageObject\WishListPage.class
 pageObject\RegistrationPage.class
+pageObject\ProductDetailsPage.class
 driver\BrowserInit.class
+pageObject\CheckoutPage.class
 pageObject\HomePage.class
 pageObject\LoginPage.class

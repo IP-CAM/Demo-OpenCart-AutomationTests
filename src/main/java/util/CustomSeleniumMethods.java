@@ -5,6 +5,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -46,4 +47,15 @@ public class CustomSeleniumMethods {
             e.printStackTrace();
         }
     }
+
+    public String getText (WebElement element){
+        waitForVisibility(element);
+        return element.getText();
+    }
+
+    public void hover (WebElement element){
+        Actions action = new Actions(driver);
+        action.moveToElement(element).click().perform();
+    }
+
 }
