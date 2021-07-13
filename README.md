@@ -19,7 +19,7 @@ Also, you don't need to download any kind of web driver since the WebDriverManag
 
 If you want to run tests from an integrated terminal in IntelliJ, simply open terminal and type: "mvn clean test", that command will freshly build the project and execute all the tests in one sequence. If you want to run it from your default terminal, open the command prompt, place yourself in the project directory, and run the same command as you would in the integrated terminal "mvn clean test".
 
-There is the possibility to run tests in the HEADLESS mode, but first, you will need to uncomment that Chrome option in the BrowserInit class - src/main/java/driver/BrowserInit.java. If you don't like the terminal, you can also right-click on the TestRunner class place in src/test/java/TestRunner.java and simply click on Run 'TestRunner'.
+There is the possibility to run tests in the HEADLESS mode, but first, you will need to uncomment that Chrome option in the BrowserInit class - src/main/java/driver/BrowserInit.java. If you don't like the terminal, you can also right-click on the TestRunner class placed in src/test/java/TestRunner.java and simply click on Run 'TestRunner'.
 
 When the tests are finished, you can check your terminal, there should be a section where you can find a link to the external report where you can exactly see which steps passed and which ones failed.
 
